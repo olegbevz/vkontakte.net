@@ -1,0 +1,5 @@
+<Configuration>
+  <NamespaceFolders>
+    <SkipFolder>9A90012B-CBFD-45DF-A03F-CD1D345679E5/d:ViewModel</SkipFolder>
+  </NamespaceFolders>
+</Configuration>
