@@ -6,11 +6,11 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9A90012B-CBFD-45DF-A03F-CD1D345679E5}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MusicSearcher</RootNamespace>
     <AssemblyName>MusicSearcher</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -37,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Image\Music_Note_Double.ico</ApplicationIcon>
+    <ApplicationIcon>Images\Music_Note_Double.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,7 +48,8 @@
     <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>MusicSearcher.App</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -65,29 +66,14 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    <Compile Include="AudioAdapterLocal.cs" />
     <Compile Include="Resources.cs" />
-    <Compile Include="ViewModel\AudioCollectionViewModel.cs" />
-    <Compile Include="Command\ImageCommand.cs" />
-    <Compile Include="ViewModel\DoubleImageViewModel.cs" />
-    <Compile Include="VisibilityConverter.cs" />
-    <Page Include="View\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ViewModel\AudioViewModel.cs" />
-    <Compile Include="ViewModel\SearcherViewModel.cs" />
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="ViewModels\AudioCollectionViewModel.cs" />
+    <Compile Include="Commands\ImageCommand.cs" />
+    <Compile Include="ViewModels\DoubleImageViewModel.cs" />
+    <Compile Include="Converters\VisibilityConverter.cs" />
+    <Compile Include="ViewModels\AudioViewModel.cs" />
+    <Compile Include="ViewModels\SearcherViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -98,7 +84,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,55 +91,55 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VKontakteNet\VKontakteNet.csproj">
+    <ProjectReference Include="..\VKontakteNet\vkontakte.net.csproj">
       <Project>{B91B3503-6551-4D0D-96E1-7E1E27ED1B50}</Project>
-      <Name>VKontakteNet</Name>
+      <Name>vkontakte.net</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\PlayHS.png" />
+    <Resource Include="Images\PlayHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\search.ico" />
+    <Resource Include="Images\search.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\saveHS.png" />
+    <Resource Include="Images\saveHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\add.png" />
+    <Resource Include="Images\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Music_Note_Single.ico" />
+    <Resource Include="Images\Music_Note_Single.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\StopHS.png" />
+    <Resource Include="Images\StopHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\PauseHS.png" />
+    <Resource Include="Images\PauseHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Music_Note_Double.ico" />
+    <Resource Include="Images\Music_Note_Double.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\PageUpHS.png" />
+    <Resource Include="Images\PageUpHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\DocumentHS.png" />
+    <Resource Include="Images\DocumentHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\loading-spiral.gif" />
+    <Resource Include="Images\loading-spiral.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Repair.png" />
+    <Resource Include="Images\Repair.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\327_Options_24x24_72.png" />
+    <Resource Include="Images\327_Options_24x24_72.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\OptionsHS.png" />
+    <Resource Include="Images\OptionsHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\MusicSearcher.png" />
+    <Resource Include="Images\MusicSearcher.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

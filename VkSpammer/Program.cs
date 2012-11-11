@@ -8,6 +8,8 @@
 
     using VKontakteNet;
 
+    using vkontakte.net;
+
     class Program
     {
         private const int olegBevzId = 3767334;
