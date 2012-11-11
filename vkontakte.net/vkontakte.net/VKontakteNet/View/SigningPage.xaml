@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="VKontakteNet.SigningPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vk="clr-namespace:VKontakteNet"
+             Width="650"
+             Height="500">
+    <x:Code>
+        <![CDATA[ public SigningPage() { InitializeComponent(); } ]]>
+    </x:Code>
+    <WindowsFormsHost>
+        <vk:AuthorizationControl x:Name="AuthorizationControl" />
+    </WindowsFormsHost>
+</UserControl>
