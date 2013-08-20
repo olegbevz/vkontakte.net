@@ -6,14 +6,13 @@
 
 namespace vkontakte.net.Adapters
 {
+    using System.Collections.Generic;
     using System.Collections.Specialized;
 
-    using vkontakte.net;
-    using vkontakte.net.Adapters;
     using vkontakte.net.Models;
 
     /// <summary>
-    /// TODO: Update summary.
+    /// Класс для работы с аудиозаписями
     /// </summary>
     public class AudioAdapter : Adapter, IAudioAdapter
     {
@@ -21,7 +20,7 @@ namespace vkontakte.net.Adapters
         {
         }
 
-        public Audio[] GetUserAudio()
+        public IEnumerable<Audio> GetUserAudio()
         {
             return GetUserAudio(_connection.UserId);
         }
@@ -31,7 +30,7 @@ namespace vkontakte.net.Adapters
         /// </summary>
         /// <param name="id">Идентификатор пользователя</param>
         /// <returns>Список аудиозаписей</returns>
-        public Audio[] GetUserAudio(int id)
+        public IEnumerable<Audio> GetUserAudio(int id)
         {
             var query = new NameValueCollection { {"uid", id.ToString() } };
 
@@ -42,7 +41,16 @@ namespace vkontakte.net.Adapters
             return nodes.Deserialize<Audio>();
         }
 
-        public Audio[] Search(AudioSearchOptions options)
+        /// <summary>
+        /// Поиск аудиозаписей
+        /// </summary>
+        /// <param name="options">
+        /// Опции поиска аудиозаписей
+        /// </param>
+        /// <returns>
+        /// Список аудиозаписей
+        /// </returns>
+        public IEnumerable<Audio> Search(AudioSearchOptions options)
         {
             var query = new NameValueCollection
             {
@@ -60,6 +68,15 @@ namespace vkontakte.net.Adapters
             return nodes.Deserialize<Audio>();
         }
 
+        /// <summary>
+        /// Получение текста аудиозаписи
+        /// </summary>
+        /// <param name="id">
+        /// Идентификатор аудиозаписи
+        /// </param>
+        /// <returns>
+        /// The <see cref="Lyrics"/>.
+        /// </returns>
         public Lyrics GetLyrics(int id)
         {
             var query = new NameValueCollection{ {"lyrics_id", id.ToString()} };
@@ -69,14 +86,23 @@ namespace vkontakte.net.Adapters
             return document.SelectSingleNode("response/lyrics").Deserialize<Lyrics>();
         }
 
+        /// <summary>
+        /// Добавление аудиозаписи пользователю 
+        /// </summary>
+        /// <param name="audio">
+        /// Аудиозапись
+        /// </param>
+        /// <returns>
+        /// Идентификатор аудиозаписи
+        /// </returns>
         public int Add(Audio audio)
         {
             var query = new NameValueCollection
                 {
-                    {"api_id", _connection.ApplicationId.ToString()},
-                    {"sig", _connection.AccessToken},
-                    {"aid", audio.Id.ToString()},
-                    {"oid", audio.OwnerId.ToString()}
+                    { "api_id", _connection.ApplicationId.ToString()},
+                    { "sig", _connection.AccessToken},
+                    { "aid", audio.Id.ToString()},
+                    { "oid", audio.OwnerId.ToString()}
                 };
 
             var document = ExecuteRequest("audio.add", query);

@@ -6,6 +6,7 @@
 
 namespace vkontakte.net.Adapters
 {
+    using System.Collections.Generic;
     using System.Collections.Specialized;
 
     using vkontakte.net.Models;
@@ -20,7 +21,16 @@ namespace vkontakte.net.Adapters
 
         }
 
-        public Video[] GetVideos(int id)
+        /// <summary>
+        /// Получение списка видеозаписей пользователя
+        /// </summary>
+        /// <param name="id">
+        /// Идентификатор пользователя
+        /// </param>
+        /// <returns>
+        /// Список видеозписей пользователя
+        /// </returns>
+        public IEnumerable<Video> GetVideos(int id)
         {
             var query = new NameValueCollection();
 
@@ -30,7 +40,7 @@ namespace vkontakte.net.Adapters
 
             var nodes = document.SelectNodes("response/video");
 
-            return Helper.Deserialize<Video>(nodes);
+            return Extensions.Deserialize<Video>(nodes);
         }
     }
 }

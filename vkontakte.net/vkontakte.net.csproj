@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Adapters\Adapter.cs" />
     <Compile Include="Adapters\AudioAdapter.cs" />
+    <Compile Include="Models\LikeContainer.cs" />
     <Compile Include="Models\AudioSorting.cs" />
     <Compile Include="Adapters\GroupAdapter.cs" />
     <Compile Include="Adapters\LikeAdapter.cs" />
@@ -52,7 +53,7 @@
     <Compile Include="Models\AudioSearchOptions.cs" />
     <Compile Include="Adapters\Connection.cs" />
     <Compile Include="Adapters\DocumentAdapter.cs" />
-    <Compile Include="Adapters\Helper.cs" />
+    <Compile Include="Adapters\Extensions.cs" />
     <Compile Include="Adapters\IAudioAdapter.cs" />
     <Compile Include="Adapters\MessageAdapter.cs" />
     <Compile Include="Adapters\PhotoAdapter.cs" />

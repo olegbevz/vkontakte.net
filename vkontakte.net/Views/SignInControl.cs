@@ -19,11 +19,24 @@ namespace vkontakte.net.Views
     {
         public bool Success;
 
+        /// <summary>
+        /// Событие завершения авторизации
+        /// </summary>
+        public event EventHandler SignInCompleted;
+
+        /// <summary>
+        /// Gets or sets the connection.
+        /// Настройки подключения
+        /// </summary>
         public Connection Connection { get; set; }
 
-        public event EventHandler AuthorizationCompleted;
-
-        public void StartAuthorization(Connection connection)
+        /// <summary>
+        /// Подключение к базе данных вконтакте
+        /// </summary>
+        /// <param name="connection">
+        /// The connection.
+        /// </param>
+        public void Connect(Connection connection)
         {
             this.Connection = connection;
 
@@ -38,17 +51,17 @@ namespace vkontakte.net.Views
 
             if (e.Url.ToString().Contains("access_token"))
             {
-                var myReg = new Regex(@"(?<name>[\w\d\x5f]+)=(?<value>[^\x26\s]+)", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                var regex = new Regex(@"(?<name>[\w\d\x5f]+)=(?<value>[^\x26\s]+)", RegexOptions.IgnoreCase | RegexOptions.Singleline);
                 
-                foreach (Match m in myReg.Matches(e.Url.ToString()))
+                foreach (Match match in regex.Matches(e.Url.ToString()))
                 {
-                    switch (m.Groups["name"].Value)
+                    switch (match.Groups["name"].Value)
                     {
                         case "access_token":
-                            this.Connection.AccessToken = m.Groups["value"].Value;
+                            this.Connection.AccessToken = match.Groups["value"].Value;
                             break;
                         case "user_id":
-                            this.Connection.UserId = Convert.ToInt32(m.Groups["value"].Value);
+                            this.Connection.UserId = Convert.ToInt32(match.Groups["value"].Value);
                             break;
                     }
                 }
@@ -60,18 +73,18 @@ namespace vkontakte.net.Views
                     this.Success = false;
                 }
 
-                if (this.AuthorizationCompleted != null)
+                if (this.SignInCompleted != null)
                 {
-                    this.AuthorizationCompleted.Invoke(this, new EventArgs());
+                    this.SignInCompleted.Invoke(this, new EventArgs());
                 }
             }
             else if (e.Url.ToString().Contains("user_denied"))
             {
                 this.Success = false;
 
-                if (this.AuthorizationCompleted != null)
+                if (this.SignInCompleted != null)
                 {
-                    this.AuthorizationCompleted.Invoke(this, new EventArgs());
+                    this.SignInCompleted.Invoke(this, new EventArgs());
                 }
             }
         }

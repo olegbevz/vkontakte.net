@@ -43,24 +43,24 @@ namespace vkontakte.net.Adapters
         /// <returns></returns>
         public T GetProfile<T>(int id)
         {
-            return GetProfile<T>(new[] { id })[0];
+            return GetProfile<T>(new[] { id }).FirstOrDefault();
         }
 
         /// <summary>
         /// Возвращает профиль указанного пользователя
         /// </summary>
         /// <param name="ids">Список идентификаторов</param>
-        public T[] GetProfile<T>(int[] ids)
+        public IEnumerable<T> GetProfile<T>(int[] ids)
         {
             var query = new NameValueCollection();
 
-            query["uids"] = ids.WithComma();
+            query["uids"] = ids.ToStringWithComma();
 
-            query["fields"] = Helper.GetAttributesNames(typeof(T)).WithComma();
+            query["fields"] = Extensions.GetAttributesNames(typeof(T)).ToArray().ToStringWithComma();
 
             var document = ExecuteRequest("getProfiles", query);
 
-            return Helper.Deserialize<T>(document.SelectNodes("response/user"));
+            return Extensions.Deserialize<T>(document.SelectNodes("response/user"));
         }
 
         #endregion
@@ -70,24 +70,24 @@ namespace vkontakte.net.Adapters
         /// <summary>
         /// Возвращает список друзей текущего пользователя
         /// </summary>
-        public T[] GetFriends<T>()
+        public IEnumerable<T> GetFriends<T>()
         {
             return GetFriends<T>(_connection.UserId);
         }
 
-        public T[] GetFriends<T>(int id)
+        public IEnumerable<T> GetFriends<T>(int id)
         {
             var query = new NameValueCollection();
 
             query["uid"] = id.ToString();
 
-            query["fields"] = Helper.GetAttributesNames(typeof(T)).WithComma();
+            query["fields"] = Extensions.GetAttributesNames(typeof(T)).ToArray().ToStringWithComma();
 
             var document = ExecuteRequest("friends.get", query);
 
             if (document != null)
             {
-                return Helper.Deserialize<T>(document.SelectNodes("response/user"));
+                return Extensions.Deserialize<T>(document.SelectNodes("response/user"));
             }
             else
             {

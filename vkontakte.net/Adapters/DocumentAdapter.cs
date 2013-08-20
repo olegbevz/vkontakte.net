@@ -6,10 +6,9 @@
 
 namespace vkontakte.net.Adapters
 {
+    using System.Collections.Generic;
     using System.Collections.Specialized;
 
-    using vkontakte.net;
-    using vkontakte.net.Adapters;
     using vkontakte.net.Models;
 
     /// <summary>
@@ -21,7 +20,16 @@ namespace vkontakte.net.Adapters
         {
         }
 
-        public Document[] GetDocuments(int id)
+        /// <summary>
+        /// Получение документов пользователя
+        /// </summary>
+        /// <param name="id">
+        /// Идентификатор пользователя
+        /// </param>
+        /// <returns>
+        /// The <see cref="IEnumerable"/>.
+        /// </returns>
+        public IEnumerable<Document> GetDocuments(int id)
         {
             var query = new NameValueCollection();
 
@@ -31,7 +39,7 @@ namespace vkontakte.net.Adapters
 
             var nodes = document.SelectNodes("response/doc");
 
-            return Helper.Deserialize<Document>(nodes);
+            return Extensions.Deserialize<Document>(nodes);
         }
     }
 }

@@ -13,14 +13,11 @@ namespace vkontakte.net.Adapters
     using System.Security.Cryptography.X509Certificates;
     using System.Xml;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public abstract class Adapter
     {
         protected Connection _connection;
 
-        public Adapter(Connection connection)
+        protected Adapter(Connection connection)
         {
             this._connection = connection;
 
@@ -43,7 +40,7 @@ namespace vkontakte.net.Adapters
         /// <param name="message">Текст сообщения</param>
         public bool WallPost(int uid, string message)
         {
-          NameValueCollection qs = new NameValueCollection();
+          var qs = new NameValueCollection();
           qs["owner_id"] = uid.ToString();
           qs["message"] = message;
           this.ExecuteRequest("wall.post", qs);
@@ -117,7 +114,7 @@ namespace vkontakte.net.Adapters
         /// <param name="qs">Дополнительные параметры</param>
         protected XmlDocument ExecuteRequest(string name, NameValueCollection qs)
         {
-            var result = new XmlDocument();
+            var document = new XmlDocument();
 
             var value = (from item in qs.AllKeys select item + "=" + qs[item]).ToArray();
 
@@ -127,9 +124,9 @@ namespace vkontakte.net.Adapters
                   this._connection.AccessToken, 
                   string.Join("&", value));
 
-            result.Load(request);
+            document.Load(request);
 
-            return result;
+            return document;
         }
     }
 }

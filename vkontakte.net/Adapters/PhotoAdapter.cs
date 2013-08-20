@@ -6,10 +6,9 @@
 
 namespace vkontakte.net.Adapters
 {
+    using System.Collections.Generic;
     using System.Collections.Specialized;
 
-    using vkontakte.net;
-    using vkontakte.net.Adapters;
     using vkontakte.net.Models;
 
     /// <summary>
@@ -21,7 +20,16 @@ namespace vkontakte.net.Adapters
         {
         }
 
-        public PhotoAlbum[] GetAlbums(int id)
+        /// <summary>
+        /// Получение списка альбомов с изображениями пользователя
+        /// </summary>
+        /// <param name="id">
+        /// Идентификатор пользвателя
+        /// </param>
+        /// <returns>
+        /// Список альбомов с изображениями
+        /// </returns>
+        public IEnumerable<PhotoAlbum> GetAlbums(int id)
         {
             var query = new NameValueCollection();
 
@@ -31,10 +39,22 @@ namespace vkontakte.net.Adapters
 
             var nodes = document.SelectNodes("response/album");
 
-            return Helper.Deserialize<PhotoAlbum>(nodes);
+            return Extensions.Deserialize<PhotoAlbum>(nodes);
         }
 
-        public Photo[] GetPhotos(int userId, int albumId)
+        /// <summary>
+        /// Получение списка изображений в альбоме
+        /// </summary>
+        /// <param name="userId">
+        /// Идентификатор пользователя
+        /// </param>
+        /// <param name="albumId">
+        /// Идентификатор альбома
+        /// </param>
+        /// <returns>
+        /// Фоторгафии в альбоме
+        /// </returns>
+        public IEnumerable<Photo> GetPhotos(int userId, int albumId)
         {
             var query = new NameValueCollection();
 
@@ -44,7 +64,7 @@ namespace vkontakte.net.Adapters
 
             var document = this.ExecuteRequest("photos.get", query);
 
-            return Helper.Deserialize<Photo>(document.SelectNodes("response/photo"));
+            return Extensions.Deserialize<Photo>(document.SelectNodes("response/photo"));
         }
     }
 }

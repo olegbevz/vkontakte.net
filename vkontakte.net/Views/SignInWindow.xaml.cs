@@ -23,8 +23,6 @@ namespace vkontakte.net.Views
         
         public SigningWindow(Connection connection)
         {
-            try
-            {
                 this.InitializeComponent();
 
                 this.Width = this.SignInControl.ClientSize.Width;
@@ -33,17 +31,12 @@ namespace vkontakte.net.Views
 
                 this.Connection = connection;
 
-                this.SignInControl.AuthorizationCompleted += OnAuthorizationCompleted;
+                this.SignInControl.SignInCompleted += OnSignInCompleted;
 
-                this.SignInControl.StartAuthorization(this.Connection);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                this.SignInControl.Connect(this.Connection);
         }
 
-        public void OnAuthorizationCompleted(object sender, EventArgs e)
+        public void OnSignInCompleted(object sender, EventArgs e)
         {
             try
             {

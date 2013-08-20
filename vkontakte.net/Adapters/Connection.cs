@@ -17,10 +17,22 @@ namespace vkontakte.net.Adapters
         /// </summary>
         public int UserId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the application id.
+        /// Идентификатор приложения
+        /// </summary>
         public int ApplicationId { get; set; }
 
+        /// <summary>
+        /// Gets or sets the access token.
+        /// Идентификатор подключения
+        /// </summary>
         public string AccessToken { get; set; }
 
+        /// <summary>
+        /// Gets or sets the scope.
+        /// Права доступа приложения
+        /// </summary>
         public int Scope { get; set; }
     }
 }
