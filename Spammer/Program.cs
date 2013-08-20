@@ -6,9 +6,10 @@
     using System.Linq;
     using System.Threading;
 
-    using VKontakteNet;
-
-    using vkontakte.net;
+    using vkontakte.net.Adapters;
+    using vkontakte.net.Models;
+    using vkontakte.net.Response;
+    using vkontakte.net.Views;
 
     class Program
     {

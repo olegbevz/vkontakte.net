@@ -12,7 +12,7 @@ namespace MusicSearcher.Wpf.Views
     using System;
     using System.Windows;
 
-    using VKontakteNet;
+    using vkontakte.net.Views;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
