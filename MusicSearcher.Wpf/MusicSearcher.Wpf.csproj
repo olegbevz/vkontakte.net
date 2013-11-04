@@ -94,7 +94,7 @@
       <Project>{9a90012b-cbfd-45df-a03f-cd1d345679e5}</Project>
       <Name>MusicSearcher</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VKontakteNet\vkontakte.net.csproj">
+    <ProjectReference Include="..\vkontakte.net\vkontakte.net.csproj">
       <Project>{b91b3503-6551-4d0d-96e1-7e1e27ed1b50}</Project>
       <Name>vkontakte.net</Name>
     </ProjectReference>
