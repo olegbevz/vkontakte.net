@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using vkontakte.net.Adapters;
+using vkontakte.net.Models;
 
 namespace VKontakteNet
 {
-    public class AudioAdapterLocal :IAudioAdapter
+    public class AudioAdapterLocal : IAudioAdapter
     {
-        public Audio[] GetUserAudio()
+        public IEnumerable<Audio> GetUserAudio()
         {
             return GetUserAudio(0);
         }
 
-        public Audio[] GetUserAudio(int id)
+        public IEnumerable<Audio> GetUserAudio(int id)
         {
             return Search(null);
         }
 
-        public Audio[] Search(AudioSearchOptions options)
+        public IEnumerable<Audio> Search(AudioSearchOptions options)
         {
             var files = Directory.GetFiles(@"D:\Music\Music", "*.mp3");
 

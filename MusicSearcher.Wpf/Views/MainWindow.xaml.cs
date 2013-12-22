@@ -11,7 +11,8 @@ namespace MusicSearcher.Wpf.Views
 {
     using System;
     using System.Windows;
-
+    using vkontakte.net.Adapters;
+    using vkontakte.net.Models;
     using vkontakte.net.Views;
 
     /// <summary>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace MusicSearcher
 {
+    using vkontakte.net.Adapters;
+    using vkontakte.net.Models;
     using VKontakteNet;
 
     public class AudioCollectionViewModel : List<AudioViewModel>

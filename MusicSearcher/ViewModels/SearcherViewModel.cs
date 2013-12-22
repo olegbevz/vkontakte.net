@@ -16,6 +16,9 @@ namespace MusicSearcher
     using VKontakteNet;
 
     using vkontakte.net;
+    using vkontakte.net.Models;
+    using vkontakte.net.Adapters;
+    using vkontakte.net.ViewModels;
 
     /// <summary>
     /// TODO: Update summary.
@@ -47,7 +50,7 @@ namespace MusicSearcher
 
             OptionImage = new DoubleImageViewModel(Resources.OpenSettingsImage, Resources.CloseTextImage);
 
-            SearchResult = new AudioCollectionViewModel(_adapter.GetUserAudio(), adapter);
+            SearchResult = new AudioCollectionViewModel(_adapter.GetUserAudio().ToArray(), adapter);
 
             SearchOptions = new AudioSearchOptions();
 
@@ -170,7 +173,7 @@ namespace MusicSearcher
 
                     worker.DoWork += (sender, e) =>
                     {
-                        audios = _adapter.Search(SearchOptions);
+                        audios = _adapter.Search(SearchOptions).ToArray();
 
                         if (SearchOptions.SearchLyrics)
                         {
