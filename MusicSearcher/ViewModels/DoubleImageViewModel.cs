@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Media.Imaging;
-using vkontakte.net.ViewModels;
 using VKontakteNet;
 
 namespace MusicSearcher

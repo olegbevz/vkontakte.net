@@ -74,7 +74,7 @@ namespace MusicSearcher
 
         private static BitmapImage GetResource(string name)
         {
-            return new BitmapImage(new Uri(string.Format("pack://application:,,,/MusicSearcher;component/Image/{0}", name)));
+            return new BitmapImage(new Uri(string.Format("pack://application:,,,/MusicSearcher;component/Images/{0}", name)));
         }
     }
 }

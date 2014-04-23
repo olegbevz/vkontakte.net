@@ -73,7 +73,11 @@
     <Compile Include="ViewModels\DoubleImageViewModel.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="ViewModels\AudioViewModel.cs" />
+    <Compile Include="ViewModels\IConnectionContainer.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\SearcherViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelWithConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

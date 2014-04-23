@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace vkontakte.net.ViewModels
+namespace MusicSearcher
 {
     using System;
     using System.ComponentModel;

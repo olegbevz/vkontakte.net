@@ -5,7 +5,6 @@
     using System.Windows;
     using System.Windows.Media.Imaging;
     using System.ComponentModel;
-    using vkontakte.net.ViewModels;
 
     public class ImageCommand : RelayCommand
     {

@@ -20,20 +20,20 @@ namespace vkontakte.net.Views
     public partial class SigningWindow
     {
         public Connection Connection { get; set; }
-        
+
         public SigningWindow(Connection connection)
         {
-                this.InitializeComponent();
+            this.InitializeComponent();
 
-                this.Width = this.SignInControl.ClientSize.Width;
+            this.MinWidth = this.SignInControl.ClientSize.Width;
 
-                this.Height = this.SignInControl.ClientSize.Height;
+            this.MinHeight = this.SignInControl.ClientSize.Height;
 
-                this.Connection = connection;
+            this.Connection = connection;
 
-                this.SignInControl.SignInCompleted += OnSignInCompleted;
+            this.SignInControl.SignInCompleted += OnSignInCompleted;
 
-                this.SignInControl.Connect(this.Connection);
+            this.SignInControl.Connect(this.Connection);
         }
 
         public void OnSignInCompleted(object sender, EventArgs e)

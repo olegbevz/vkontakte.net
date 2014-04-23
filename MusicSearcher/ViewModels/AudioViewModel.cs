@@ -17,7 +17,6 @@ namespace MusicSearcher
     using Microsoft.Win32;
 
     using VKontakteNet;
-    using vkontakte.net.ViewModels;
     using vkontakte.net.Adapters;
     using vkontakte.net.Models;
 

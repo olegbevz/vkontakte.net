@@ -18,7 +18,6 @@ namespace MusicSearcher
     using vkontakte.net;
     using vkontakte.net.Models;
     using vkontakte.net.Adapters;
-    using vkontakte.net.ViewModels;
 
     /// <summary>
     /// TODO: Update summary.

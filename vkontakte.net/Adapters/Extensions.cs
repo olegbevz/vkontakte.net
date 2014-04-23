@@ -125,28 +125,9 @@ namespace vkontakte.net.Adapters
             return (T)result;
         }
 
-        //public static string ToStringWithComma<T>(this IEnumerable<T> strings)
-        //{
-        //    return ToStringWithComma(strings.ToArray() as Array);
-        //}
-
         public static string ToStringWithComma(this Array strings)
         {
-            var result = string.Empty;
-
-            if (strings.Length == 0)
-            {
-                return result;
-            }
-
-            for (var i = 0; i < strings.Length; i++)
-            {
-                result += strings.GetValue(i) + ",";
-            }
-
-            result = result.Substring(0, result.Length - 1);
-
-            return result;
+            return string.Join(",", strings.Cast<string>().ToArray());
         }
     }
 } 
