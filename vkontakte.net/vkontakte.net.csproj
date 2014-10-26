@@ -63,6 +63,7 @@
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\ScopeList.cs" />
     <Compile Include="Adapters\VideoAdapter.cs" />
+    <Compile Include="Views\AuthenticationService.cs" />
     <Compile Include="Views\SignInControl.cs">
       <SubType>Component</SubType>
     </Compile>
