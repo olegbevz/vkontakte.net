@@ -40,9 +40,12 @@ namespace vkontakte.net.Views
         {
             this.Connection = connection;
 
-            const string uri = "http://api.vkontakte.ru/oauth/authorize?client_id={0}&scope={1}&display=popup&response_type=token";
+            string uri = string.Format(
+                "https://oauth.vk.com/authorize?client_id={0}&display=popup&scope={1}&response_type=token", 
+                connection.ApplicationId,
+                connection.Scope);
 
-            this.Navigate(new Uri(string.Format(uri, connection.ApplicationId, connection.Scope)));
+            this.Navigate(new Uri(uri));
         }
 
         protected override void OnDocumentCompleted(WebBrowserDocumentCompletedEventArgs e)

@@ -24,6 +24,9 @@
                 Scope = (int)ScopeList.AccessToMessages
             };
 
+            var authenticationService = new AuthenticationService(connection);
+            var result = authenticationService.Authenticate();
+
             var dialog = new SigningWindow(connection);
 
             if (dialog.ShowDialog() == true)

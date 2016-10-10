@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vkontakte.net", "vkontakte.net\vkontakte.net.csproj", "{B91B3503-6551-4D0D-96E1-7E1E27ED1B50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicSearcher", "MusicSearcher\MusicSearcher.csproj", "{9A90012B-CBFD-45DF-A03F-CD1D345679E5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicSearcher.Wpf", "MusicSearcher.Wpf\MusicSearcher.Wpf.csproj", "{DED413BA-72D7-4F04-B516-EFB0161B915D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spammer", "Spammer\Spammer.csproj", "{572F037A-B560-4664-82AC-D9B0745CF19F}"
 EndProject
@@ -45,16 +43,6 @@ Global
 		{9A90012B-CBFD-45DF-A03F-CD1D345679E5}.Release|x64.ActiveCfg = Release|Any CPU
 		{9A90012B-CBFD-45DF-A03F-CD1D345679E5}.Release|x86.ActiveCfg = Release|x86
 		{9A90012B-CBFD-45DF-A03F-CD1D345679E5}.Release|x86.Build.0 = Release|x86
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Release|ARM.ActiveCfg = Release|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Release|x64.ActiveCfg = Release|Any CPU
-		{DED413BA-72D7-4F04-B516-EFB0161B915D}.Release|x86.ActiveCfg = Release|Any CPU
 		{572F037A-B560-4664-82AC-D9B0745CF19F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{572F037A-B560-4664-82AC-D9B0745CF19F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{572F037A-B560-4664-82AC-D9B0745CF19F}.Debug|ARM.ActiveCfg = Debug|Any CPU
